@@ -1,0 +1,11 @@
+# Ignore pyrefly.toml at workspace root
+pyrefly.toml
+
+# Inner project ignores
+examintel-mcp/venv/
+examintel-mcp/chroma_db/
+examintel-mcp/__pycache__/
+examintel-mcp/*.pyc
+examintel-mcp/.DS_Store
+examintel-mcp/data/pdfs/*/
+examintel-mcp/*.mcpb

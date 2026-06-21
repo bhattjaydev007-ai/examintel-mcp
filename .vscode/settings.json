@@ -1,0 +1,3 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/examintel-mcp/venv/Scripts/python.exe"
+}

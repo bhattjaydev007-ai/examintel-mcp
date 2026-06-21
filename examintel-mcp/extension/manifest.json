@@ -1,0 +1,41 @@
+{
+  "manifest_version": "0.4",
+  "name": "examintel-mcp",
+  "display_name": "ExamIntel",
+  "version": "1.0.0",
+  "description": "Semantic search and study-plan generation over your own exam question papers.",
+  "author": {
+    "name": "Jaydev Bhatt"
+  },
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--directory", "${__dirname}", "src/server.py"],
+      "env": {
+        "EXAMINTEL_DATA_DIR": "${user_config.data_directory}"
+      }
+    }
+  },
+  "user_config": {
+    "data_directory": {
+      "type": "directory",
+      "title": "Project Data Folder",
+      "description": "Select your examintel-mcp project folder (the one containing data/pdfs and chroma_db — the same folder you run ingest.py in).",
+      "required": true
+    }
+  },
+  "tools": [
+    { "name": "search_topic", "description": "Semantic search across indexed past exam papers for a subject and topic" },
+    { "name": "topic_frequency", "description": "Rank recurring terms by how often they appear across indexed years" },
+    { "name": "generate_study_plan", "description": "Generate a revision priority order based on topic frequency and days remaining" }
+  ],
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": ["win32", "darwin", "linux"],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}
